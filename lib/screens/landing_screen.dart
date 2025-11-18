@@ -42,9 +42,7 @@ class LandingScreen extends StatelessWidget {
         ),
         actions: [
           TextButton.icon(
-            onPressed: () {
-              // TODO: Navigate to Sign In
-            },
+            onPressed: () {},
             icon: const Icon(Icons.login, color: Colors.blue),
             label: const Text('Sign In', style: TextStyle(color: Colors.blue)),
           ),
@@ -56,7 +54,7 @@ class LandingScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // === OUTER BORDERED SECTION ===
+            // === BORDERED SECTION ===
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey.shade300, width: 1.2),
@@ -80,17 +78,17 @@ class LandingScreen extends StatelessWidget {
 
                   // === DESCRIPTION ===
                   const Text(
-                    'Raising skilled laborers',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    'Raising skilled laborers for end-time Harvest',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
                   const Text(
-                    "Turn Your Calling Into Competence. Whether you're called to lead a church, build a business, or solve problems through technology, Harvest Institute gives you the Biblical foundation and practical skills to succeed. Join East Africa's premier leadership development program.",
+                    "Turn Your Calling Into Competence. Whether you're called to lead a church, build a business, or solve problems through technology, Harvest Institute gives you the Biblical foundation and practical skills to succeed.",
                     style: TextStyle(color: Colors.black54, fontSize: 14),
                   ),
                   const SizedBox(height: 16),
 
-                  // === SCHOOL CARDS INSIDE BORDER ===
+                  // === SCHOOL CARDS ===
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -126,19 +124,22 @@ class LandingScreen extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // === NEW TOP COURSES SECTION ADDED HERE ===
-            const TopCoursesSection(),
+            // === TECH COURSES SECTION ===
+            const TopCoursesSectionTech(),
+
+            const SizedBox(height: 24),
+
+            // === BUSINESS COURSES SECTION (NEW) ===
+            const TopCoursesSectionBusiness(),
+
             const SizedBox(height: 24),
 
             // === BUTTONS ===
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
-                    onPressed: () {
-                      // TODO: Navigate to Sign In
-                    },
+                    onPressed: () {},
                     icon: const Icon(Icons.login),
                     label: const Text('Sign In'),
                     style: ElevatedButton.styleFrom(
@@ -154,9 +155,7 @@ class LandingScreen extends StatelessWidget {
                 const SizedBox(width: 12),
                 Expanded(
                   child: ElevatedButton.icon(
-                    onPressed: () {
-                      // TODO: Navigate to Create Account
-                    },
+                    onPressed: () {},
                     icon: const Icon(Icons.person_add_alt),
                     label: const Text('Create Account'),
                     style: ElevatedButton.styleFrom(
@@ -186,7 +185,7 @@ class LandingScreen extends StatelessWidget {
 }
 
 // ========================================
-// EXISTING SCHOOL CARD (UNTOUCHED)
+// SCHOOL CARD
 // ========================================
 class _SchoolCard extends StatelessWidget {
   final String imageUrl;
@@ -253,11 +252,11 @@ class _SchoolCard extends StatelessWidget {
   }
 }
 
-// ========================================
-// NEW TOP COURSES SECTION
-// ========================================
-class TopCoursesSection extends StatelessWidget {
-  const TopCoursesSection({super.key});
+// =====================================================
+// TOP COURSES — SCHOOL OF TECH
+// =====================================================
+class TopCoursesSectionTech extends StatelessWidget {
+  const TopCoursesSectionTech({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -265,60 +264,82 @@ class TopCoursesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Top Courses in Harvest Institute',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          'Top Courses in School Of Tech',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
 
-        // Horizontal courses
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: const [
               _CourseCard(
                 title: 'AI for Business',
-                imageUrl: 'assets/images/course1.jpg',
+                imageUrl: 'assets/images/AI for business.png',
               ),
               _CourseCard(
                 title: 'Backend Web Development',
-                imageUrl: 'assets/images/course2.jpg',
+                imageUrl: 'assets/images/Backend.png',
               ),
               _CourseCard(
                 title: 'Data Analytics',
-                imageUrl: 'assets/images/course3.jpg',
+                imageUrl: 'assets/images/Data analytics.png',
               ),
               _CourseCard(
                 title: 'Frontend Web Development',
-                imageUrl: 'assets/images/course4.jpg',
+                imageUrl: 'assets/images/Frontend.png',
               ),
               _CourseCard(
                 title: 'Mobile App Development (Flutter)',
-                imageUrl: 'assets/images/course5.jpg',
+                imageUrl: 'assets/images/Mobile app.png',
               ),
             ],
           ),
         ),
+      ],
+    );
+  }
+}
 
-        const SizedBox(height: 30),
+// =====================================================
+// TOP COURSES — SCHOOL OF PRACTICAL BUSINESS (NEW)
+// =====================================================
+class TopCoursesSectionBusiness extends StatelessWidget {
+  const TopCoursesSectionBusiness({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
         const Text(
-          'Categories',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          'Top Courses in School Of Practical Business',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
 
-        Wrap(
-          spacing: 10,
-          runSpacing: 10,
-          children: const [
-            _CategoryChip(label: 'AI & Data'),
-            _CategoryChip(label: 'Web Development'),
-            _CategoryChip(label: 'Mobile Development'),
-            _CategoryChip(label: 'Digital Marketing'),
-            _CategoryChip(label: 'Project Management'),
-            _CategoryChip(label: 'UI/UX Design'),
-            _CategoryChip(label: 'Beginner Courses'),
-          ],
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: const [
+              _CourseCard(
+                title: 'Leadership & Governance',
+                imageUrl: 'assets/images/AI-for-business.jpg',
+              ),
+              _CourseCard(
+                title: 'Sales & Markets',
+                imageUrl: 'assets/images/biz2.jpg',
+              ),
+              _CourseCard(
+                title: 'People & Teams',
+                imageUrl: 'assets/images/biz3.jpg',
+              ),
+              _CourseCard(
+                title: 'Operations & Technology',
+                imageUrl: 'assets/images/biz4.jpg',
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -371,25 +392,6 @@ class _CourseCard extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-// ========================================
-// CATEGORY CHIP
-// ========================================
-class _CategoryChip extends StatelessWidget {
-  final String label;
-
-  const _CategoryChip({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Chip(
-      label: Text(label),
-      backgroundColor: Colors.grey.shade200,
-      labelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
     );
   }
 }
