@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/landing_screen.dart';
 import 'screens/attendance_screen.dart';
-import 'screens/assignments_screen.dart';
+import 'screens/assignment_screen.dart';
 import 'screens/payments_screen.dart';
 import 'screens/profile_screen.dart';
 
@@ -34,7 +34,7 @@ class _MainNavigationState extends State<MainNavigation> {
   final List<Widget> _screens = const [
     LandingScreen(),
     AttendanceScreen(),
-    AssignmentsScreen(),
+    AssignmentScreen(),
     PaymentsScreen(),
     ProfileScreen(),
   ];
